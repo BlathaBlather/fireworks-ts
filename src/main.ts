@@ -1,3 +1,5 @@
+const darkMode: boolean = true;
+
 const g: number[] = [0.99, 0.013];
 
 
@@ -114,10 +116,18 @@ var explosions: Explosion[] = [];
 var fireworks: Firework[] = [];
 
 function loop() {
-    ctx.fillStyle = "black";
+    if (darkMode) {
+        ctx.fillStyle = "black";
+    } else {
+        ctx.fillStyle = "white";
+    }
     ctx.fillRect(0, 0, window.innerWidth, window.innerHeight)
 
-    ctx.fillStyle = "white";
+    if (darkMode) {
+        ctx.fillStyle = "white";
+    } else {
+        ctx.fillStyle = "black";
+    }
     for (let i = 0; i < fireworks.length; i++) {
         var firework = fireworks[i];
         let x = firework.get_coords()[0];
